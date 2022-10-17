@@ -1,0 +1,17 @@
+
+
+#cajaReyesMagos{
+    border-style: double;
+    border-radius: 20px;
+    background-color: aquamarine;
+    justify-content: center;
+    text-align:center;
+}
+
+#cajaDia{
+    border-style: dashed;
+    background-color: orangered;
+    justify-content: center;
+    text-align:center;
+}
+
