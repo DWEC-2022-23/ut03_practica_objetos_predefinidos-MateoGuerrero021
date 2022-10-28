@@ -1,5 +1,3 @@
-
-
 const ReyesBoton=document.getElementById("ReyesMagos");//Accedemos al elemento cuyo id es Reyes Magos y es el boton que envia la informacion
     ReyesBoton.addEventListener("click",reyesMagos,false);//le añadimos un evento al boton el cual cuando se haga un klick en el se acceda a la funcion  reyesMagos 
 
@@ -25,12 +23,26 @@ const botonContarVocales=document.getElementById("conterVocales");
     botonContarVocales.addEventListener("click",contarVocales,false);
 
 function reyesMagos(){
-      //var dia_formato=moment("2016-01-01").format('dddd');
- var fecha1 = moment('2016-07-12');
-var fecha2 = moment('2016-08-01');
-
-console.log(fecha2.diff(fecha1, 'hours'), ' horas de diferencia');
-    
+      let fech=new Date(document.getElementById("fecha").value);
+      let mes=fech.getMonth();
+      let dia=fech.getDate();
+      let reyes=new Date();
+      if(mes+1==1){
+            if(dia==6){
+                alert("Hoy han venido los reyes!!!!");
+            }else if(dia>6){
+                let resto=30-dia;
+                alert("Quedan "+resto+" dias y 11 meses para los reyes")
+            }else{
+                let resto=6-dia;
+                alert("quedan "+resto+" dias");
+            }
+        }else{
+            let restoDia=30-dia+6;
+            let restoMes=11-mes;
+            alert("Quedan "+restoDia+" dias y "+restoMes+" meses");
+        }
+        
 }
 
 function diaDeHoy(){
@@ -103,9 +115,9 @@ function diaDeHoy(){
             MesToString="diciembre";
             break;        
     }
-    
+
     alert("Hoy es "+dia+" "+DiaToString+" de "+mes+" "+MesToString+" del "+año+" a las "+hora+":"+minurtos);
-    
+
 }
 
 function calculoArea(){
@@ -117,41 +129,47 @@ function calculoArea(){
 function calcularAleatorio(){
     let minimo=document.getElementById("valor1").value;
     let maximo=document.getElementById("valor2").value;
-    let aleatorio=Math.random()*(maximo - minimo)+minimo
+    let aleatorio=Math.random()*(maximo - minimo)+minimo;
+    
+    alert(Math.round(aleatorio));
 
 }
 
 
 function mitadCar(){
     let  cadena=new String(document.getElementById("palabra").value);
-
+    let res=new String() ;
     for(let i=0;i<cadena.length/2;i++){
-        document.write(cadena[i]);
+        res+=cadena[i];
+        
     }
+    alert(res);
 }
 
 
 function ultimoCaracter(){
     let cadena=new String(document.getElementById("palabra").value);
-    
+
     alert(cadena.charAt(cadena.length-1));
 }
 
 function cadenaInversa(){
     let cadena=new String(document.getElementById("palabra").value);
-
+    let res=new String();
     for(let i=cadena.length-1;i>-1;i--){
-        document.write(cadena[i]);
+        res+=cadena[i];
     }
+    alert(res);
 }
 
 function caenaGuiones(){
     let  cadena=new String(document.getElementById("palabra").value);
-
+    let res=new String();
     for(let i=0;i<cadena.length-1;i++){
-        document.write(cadena[i]+"-");
+        res+=cadena[i]+"-";
     }
-    document.write(cadena[cadena.length-1]);
+    res+=cadena[cadena.length-1];
+    alert(res);
 }
 
 function contarVocales(){
